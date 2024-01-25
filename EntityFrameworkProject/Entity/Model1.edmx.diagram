@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="335539a73c3e4f5ab91493dfe2d24ff6" Name="Diagram1">
+        <EntityTypeShape EntityType="ENTITYFRAMEWORKDBModel.TBLAboutt" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ENTITYFRAMEWORKDBModel.TBLContact" Width="1.5" PointX="8.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ENTITYFRAMEWORKDBModel.TBLPerson" Width="1.5" PointX="6.125" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="ENTITYFRAMEWORKDBModel.FK_TBLAboutt_TBLPerson" ManuallyRouted="false" />
+        <AssociationConnector Association="ENTITYFRAMEWORKDBModel.FK_TBLContact_TBLPerson" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

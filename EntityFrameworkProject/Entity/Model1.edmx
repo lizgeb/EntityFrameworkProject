@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ENTITYFRAMEWORKDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBLAboutt">
+          <Key>
+            <PropertyRef Name="Aid" />
+          </Key>
+          <Property Name="Aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pid" Type="int" Nullable="false" />
+          <Property Name="EgitimDerecesi" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Mezuniyet" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="DogumYeri" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="DogumTarihi" Type="date" Nullable="false" />
+          <Property Name="Yas" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBLContact">
+          <Key>
+            <PropertyRef Name="Cid" />
+          </Key>
+          <Property Name="Cid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pid" Type="int" Nullable="false" />
+          <Property Name="Mail" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="Telefon" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBLPerson">
+          <Key>
+            <PropertyRef Name="Pid" />
+          </Key>
+          <Property Name="Pid" Type="int" Nullable="false" />
+          <Property Name="Ad" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Soyad" Type="nchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TBLAboutt_TBLPerson">
+          <End Role="TBLPerson" Type="Self.TBLPerson" Multiplicity="1" />
+          <End Role="TBLAboutt" Type="Self.TBLAboutt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPerson">
+              <PropertyRef Name="Pid" />
+            </Principal>
+            <Dependent Role="TBLAboutt">
+              <PropertyRef Name="Pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLContact_TBLPerson">
+          <End Role="TBLPerson" Type="Self.TBLPerson" Multiplicity="1" />
+          <End Role="TBLContact" Type="Self.TBLContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPerson">
+              <PropertyRef Name="Pid" />
+            </Principal>
+            <Dependent Role="TBLContact">
+              <PropertyRef Name="Pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ENTITYFRAMEWORKDBModelStoreContainer">
+          <EntitySet Name="TBLAboutt" EntityType="Self.TBLAboutt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLContact" EntityType="Self.TBLContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLPerson" EntityType="Self.TBLPerson" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLAboutt_TBLPerson" Association="Self.FK_TBLAboutt_TBLPerson">
+            <End Role="TBLPerson" EntitySet="TBLPerson" />
+            <End Role="TBLAboutt" EntitySet="TBLAboutt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLContact_TBLPerson" Association="Self.FK_TBLContact_TBLPerson">
+            <End Role="TBLPerson" EntitySet="TBLPerson" />
+            <End Role="TBLContact" EntitySet="TBLContact" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ENTITYFRAMEWORKDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBLAboutt">
+          <Key>
+            <PropertyRef Name="Aid" />
+          </Key>
+          <Property Name="Aid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pid" Type="Int32" Nullable="false" />
+          <Property Name="EgitimDerecesi" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Mezuniyet" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DogumYeri" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DogumTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Yas" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBLPerson" Relationship="Self.FK_TBLAboutt_TBLPerson" FromRole="TBLAboutt" ToRole="TBLPerson" />
+        </EntityType>
+        <EntityType Name="TBLContact">
+          <Key>
+            <PropertyRef Name="Cid" />
+          </Key>
+          <Property Name="Cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pid" Type="Int32" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TBLPerson" Relationship="Self.FK_TBLContact_TBLPerson" FromRole="TBLContact" ToRole="TBLPerson" />
+        </EntityType>
+        <EntityType Name="TBLPerson">
+          <Key>
+            <PropertyRef Name="Pid" />
+          </Key>
+          <Property Name="Pid" Type="Int32" Nullable="false" />
+          <Property Name="Ad" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TBLAboutt" Relationship="Self.FK_TBLAboutt_TBLPerson" FromRole="TBLPerson" ToRole="TBLAboutt" />
+          <NavigationProperty Name="TBLContact" Relationship="Self.FK_TBLContact_TBLPerson" FromRole="TBLPerson" ToRole="TBLContact" />
+        </EntityType>
+        <Association Name="FK_TBLAboutt_TBLPerson">
+          <End Role="TBLPerson" Type="Self.TBLPerson" Multiplicity="1" />
+          <End Role="TBLAboutt" Type="Self.TBLAboutt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPerson">
+              <PropertyRef Name="Pid" />
+            </Principal>
+            <Dependent Role="TBLAboutt">
+              <PropertyRef Name="Pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLContact_TBLPerson">
+          <End Role="TBLPerson" Type="Self.TBLPerson" Multiplicity="1" />
+          <End Role="TBLContact" Type="Self.TBLContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPerson">
+              <PropertyRef Name="Pid" />
+            </Principal>
+            <Dependent Role="TBLContact">
+              <PropertyRef Name="Pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ENTITYFRAMEWORKDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBLAboutt" EntityType="Self.TBLAboutt" />
+          <EntitySet Name="TBLContact" EntityType="Self.TBLContact" />
+          <EntitySet Name="TBLPerson" EntityType="Self.TBLPerson" />
+          <AssociationSet Name="FK_TBLAboutt_TBLPerson" Association="Self.FK_TBLAboutt_TBLPerson">
+            <End Role="TBLPerson" EntitySet="TBLPerson" />
+            <End Role="TBLAboutt" EntitySet="TBLAboutt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLContact_TBLPerson" Association="Self.FK_TBLContact_TBLPerson">
+            <End Role="TBLPerson" EntitySet="TBLPerson" />
+            <End Role="TBLContact" EntitySet="TBLContact" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ENTITYFRAMEWORKDBModelStoreContainer" CdmEntityContainer="ENTITYFRAMEWORKDBEntities">
+          <EntitySetMapping Name="TBLAboutt">
+            <EntityTypeMapping TypeName="ENTITYFRAMEWORKDBModel.TBLAboutt">
+              <MappingFragment StoreEntitySet="TBLAboutt">
+                <ScalarProperty Name="Aid" ColumnName="Aid" />
+                <ScalarProperty Name="Pid" ColumnName="Pid" />
+                <ScalarProperty Name="EgitimDerecesi" ColumnName="EgitimDerecesi" />
+                <ScalarProperty Name="Mezuniyet" ColumnName="Mezuniyet" />
+                <ScalarProperty Name="DogumYeri" ColumnName="DogumYeri" />
+                <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+                <ScalarProperty Name="Yas" ColumnName="Yas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLContact">
+            <EntityTypeMapping TypeName="ENTITYFRAMEWORKDBModel.TBLContact">
+              <MappingFragment StoreEntitySet="TBLContact">
+                <ScalarProperty Name="Cid" ColumnName="Cid" />
+                <ScalarProperty Name="Pid" ColumnName="Pid" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLPerson">
+            <EntityTypeMapping TypeName="ENTITYFRAMEWORKDBModel.TBLPerson">
+              <MappingFragment StoreEntitySet="TBLPerson">
+                <ScalarProperty Name="Pid" ColumnName="Pid" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
