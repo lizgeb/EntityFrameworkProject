@@ -13,9 +13,7 @@ namespace EntityFrameworkProject
         ENTITYFRAMEWORKDBEntities db = new ENTITYFRAMEWORKDBEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //var degerler = db.TBLAboutt.ToList();
-            //Repeater1.DataSource = degerler;
-            //Repeater1.DataBind();
+           
 
             var degerler = (from person in db.TBLPerson
                             join about in db.TBLAboutt on person.Pid equals about.Pid
