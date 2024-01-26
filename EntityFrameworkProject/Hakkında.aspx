@@ -37,5 +37,5 @@
         </asp:Repeater>
 
     </table>
-    <a href="HakkındaEkle.aspx" class="btn btn-info">HAKKINDA BİLGİSİ EKLE</a>
+  
 </asp:Content>

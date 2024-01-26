@@ -87,6 +87,7 @@
     </Content>
     <Content Include="Hakkında.aspx" />
     <Content Include="Iletisim.aspx" />
+    <Content Include="KayıtBul.aspx" />
     <Content Include="KisiEkle.aspx" />
     <Content Include="KisiGüncelle.aspx" />
     <Content Include="KisiKayıt.aspx" />
@@ -111,7 +112,6 @@
     <Content Include="login-form\js\owl.carousel.min.js" />
     <Content Include="login-form\js\popper.min.js" />
     <Content Include="login-form\main.html" />
-    <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +160,13 @@
     <Compile Include="Iletisim.aspx.designer.cs">
       <DependentUpon>Iletisim.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KayıtBul.aspx.cs">
+      <DependentUpon>KayıtBul.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KayıtBul.aspx.designer.cs">
+      <DependentUpon>KayıtBul.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KisiEkle.aspx.cs">
       <DependentUpon>KisiEkle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -187,13 +194,6 @@
     </Compile>
     <Compile Include="KisiSil.aspx.designer.cs">
       <DependentUpon>KisiSil.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

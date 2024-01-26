@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    <img src="staj/Logo.png" alt="Logo" style="width:50px;" />
+                    
                     
                 </a>
                <%-- <style>
@@ -33,12 +33,14 @@
                 </a>--%>
             </div>
             <ul class="nav navbar-nav">
+
                 <br />
+               
                 <li class="active"><a href="KisiKayıt.aspx">Kayıt Listesi</a></li>
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kayıt İşlemleri <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="KisiEkle.aspx">Kayıt Ekle</a></li>
-                        <li><a href="#">Kayıt Bul</a></li>
+                        <li><a href="KayıtBul.aspx">Kayıt Bul</a></li>
                         <%--<li><a href="#">Hakkında Bilgisi Ekle</a></li>
                         <li><a href="#">İletisim Bilgisi Ekle</a></li>--%>
                     </ul>
