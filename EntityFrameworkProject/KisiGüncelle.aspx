@@ -29,7 +29,7 @@
                 <asp:TextBox ID="textYas" runat="server" CssClass="form-control"  OnTextChanged="TextSoyad_TextChanged"></asp:TextBox>
             </div>
 
-            <!-- Right side - Contact Information -->
+         <%--TBLContact için--%>
             <div class="col-md-6">
 
 
